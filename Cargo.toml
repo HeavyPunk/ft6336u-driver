@@ -1,0 +1,10 @@
+[package]
+name = "ft6336u-driver"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+linux-embedded-hal = "0.4"
+uinput = "0.1"
+embedded-hal = "1"
+
