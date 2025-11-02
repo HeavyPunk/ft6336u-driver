@@ -7,4 +7,5 @@ edition = "2024"
 linux-embedded-hal = "0.4"
 uinput = "0.1"
 embedded-hal = "1"
+ft6x36 = "0.6"
 
