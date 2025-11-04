@@ -1,0 +1,33 @@
+[Unit]
+Description=FT6336U Touchscreen driver
+After=network.target
+ConditionPathExists=/dev/uinput
+ConditionPathExists=/dev/i2c-4
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ft6336u-driver
+PrivateDevices=no
+
+User=root
+Group=root
+
+DeviceAllow=/dev/uinput rw
+DeviceAllow=/dev/i2c-4 rw
+
+Restart=on-failure
+RestartSec=3
+
+ProtectSystem=off
+ProtectKernelModules=no
+ProtectKernelTunables=no
+
+CapabilityBoundingSet=CAP_SYS_ADMIN CAP_SYS_RAWIO CAP_NET_ADMIN CAP_DAC_OVERRIDE CAP_CHOWN
+AmbientCapabilities=CAP_SYS_ADMIN CAP_SYS_RAWIO CAP_NET_ADMIN CAP_DAC_OVERRIDE CAP_CHOWN
+
+# Логирование
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
