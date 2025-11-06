@@ -4,10 +4,8 @@ INSTALL_DIR := /usr/local/bin
 SERVICE_FILE := ft6336u-driver.service
 SYSTEMD_DIR := /etc/systemd/system
 
-# Цель по умолчанию — сборка
 all: build
 
-# Сборка в режиме release
 build:
 	cargo build --release
 
