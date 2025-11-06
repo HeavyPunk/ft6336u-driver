@@ -16,7 +16,7 @@ install:
 	install -Dm644 $(SERVICE_FILE) $(SYSTEMD_DIR)/$(SERVICE_FILE)
 	@echo "Reload systemd config..."
 	systemctl daemon-reload
-	@echo "Включаю и запускаю сервис..."
+	@echo "Enable and launch service..."
 	systemctl enable --now $(SERVICE_FILE)
 	@echo "✅ Installing completed!"
 
