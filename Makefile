@@ -7,7 +7,7 @@ SYSTEMD_DIR := /etc/systemd/system
 all: build
 
 build:
-	cargo build --release
+	I2C_DEV=$(I2C_DEV) UINPUT_DEV=$(UINPUT_DEV) cargo build --release
 
 install:
 	@echo "Installing driver to $(INSTALL_DIR)..."

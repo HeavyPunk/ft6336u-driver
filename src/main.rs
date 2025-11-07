@@ -6,12 +6,16 @@ use uinput::event::controller::Digi;
 use uinput::event::Controller;
 use uinput::event::Event::Absolute as AbsEvent;
 
-
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let i2c = I2cdev::new("/dev/i2c-4")?;
+    let i2c_dev = option_env!("I2C_DEV").unwrap_or("/dev/i2c-4");
+    let uinput_dev = option_env!("UINPUT_DEV").unwrap_or("/dev/uinput");
 
-    let mut device = Builder::open("/dev/uinput")?
+    println!("I2C_DEV: {i2c_dev}");
+    println!("UINPUT_DEV: {uinput_dev}");
+
+    let i2c = I2cdev::new(i2c_dev)?;
+
+    let mut device = Builder::open(uinput_dev)?
         .name("ft6336u-touch")?
         .event(AbsEvent(Absolute::Multi(Multi::Slot)))?
         .max(2)

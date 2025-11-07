@@ -6,9 +6,11 @@ The driver has hardcoded devices: `/dev/i2c-4` and `/dev/uinput`
 
 ## Building and installing
 
-Use `make` to build the project:
+Use `make` to build the project.
 
-1. Build - `make build`
+You need to select right uinput and i2c devices to compile driver for your environment.
+
+1. Build (insert to `I2C_DEV` and `UINPUT_DEV` your devices) - `I2C_DEV=/dev/i2c UINPUT_DEV=/dev/uinput make build`
     Compile driver in release configuration.
 
 2. Install - `sudo make install`
